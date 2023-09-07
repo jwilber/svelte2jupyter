@@ -8,14 +8,10 @@ repos:
       - id: check-yaml
       - id: end-of-file-fixer
       - id: mixed-line-ending
-  - repo: https://github.com/pylint-dev/pylint
-    rev: v2.17.4 # Use the ref you want to point at
+  - repo: https://github.com/psf/black
+    rev: 22.3.0
     hooks:
-      - id: pylint
-  - repo: https://github.com/PyCQA/flake8
-    rev: 3.9.2 # Use the ref you want to point at
-    hooks:
-      - id: flake8
+      - id: black
   - repo: https://github.com/PyCQA/isort
     rev: 5.12.0
     hooks:

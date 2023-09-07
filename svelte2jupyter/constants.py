@@ -1,0 +1,11 @@
+import os
+import os.path as op
+
+COMPONENTS = "components"
+COMPILED = "compiled"
+PROJECT_DIR = op.dirname(__file__)
+CURRENT_DIR = os.getcwd()
+LOCAL_COMPONENT_DIR = op.join(CURRENT_DIR, COMPONENTS)
+LOCAL_COMPILED_DIR = op.join(CURRENT_DIR, COMPILED)
+PROJECT_COMPONENT_DIR = op.join(PROJECT_DIR, COMPONENTS)
+PROJECT_COMPILED_DIR = op.join(PROJECT_DIR, COMPILED)
