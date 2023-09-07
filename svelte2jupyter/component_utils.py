@@ -2,13 +2,8 @@ import os.path as op
 import shutil
 import subprocess
 
-from .constants import (
-    CURRENT_DIR,
-    LOCAL_COMPILED_DIR,
-    LOCAL_COMPONENT_DIR,
-    PROJECT_COMPONENT_DIR,
-    PROJECT_DIR,
-)
+from .constants import (CURRENT_DIR, LOCAL_COMPILED_DIR, LOCAL_COMPONENT_DIR,
+                        PROJECT_COMPONENT_DIR, PROJECT_DIR)
 
 
 def get_component_js_script(name: str) -> str:
