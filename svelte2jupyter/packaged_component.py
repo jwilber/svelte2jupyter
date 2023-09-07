@@ -3,8 +3,7 @@ import json
 from random import randint
 from typing import Any, Dict
 
-from .component_utils import (build_components, get_component_js_script,
-                              get_svelte_props)
+from .component_utils import build_components, get_component_js_script, get_svelte_props
 
 
 class PackagedComponent:
