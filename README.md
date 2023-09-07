@@ -2,13 +2,13 @@
 
 ### Render Svelte Components in Jupyter Notebooks
 
-svelte2jupyter is minimal Python library for rendering [Svelte](https://svelte.dev/) components in [Jupyter](https://jupyter.org/) notebooks. The only dependency is that you have node installed on your machine (which is required anyway if you're using Svelte).
+svelte2jupyter is minimal Python library for rendering [Svelte](https://svelte.dev/) components in [Jupyter](https://jupyter.org/) notebooks:
 
 - 30 second gif
 
 ## Basic Use
 
-- Create a local directory called `components/` and put any Svelte components you want inside. (Note, you don't need to worry about any local node stuff, it'll be handled behind the scenes).
+In the same directory as your notebook, create a `components/` directory and put any Svelte components you want inside of it. (Note, you don't need to worry about any npm stuff, it'll be handled behind the scenes).
 
 E.g., your folder-structure should look something like:
 
@@ -28,7 +28,7 @@ _Note: if it's your first time importing, svelte2jupyter will init the local nod
 
 ## Rendering Components in Jupyter
 
-s2j allows you to render components via a functional and a class-based api. Arguments
+You can then render your components inside Jupyter via a functional or a class-based api:
 
 ```py
 # render component from function api
@@ -51,12 +51,23 @@ sj.render_component('BarChart', fill='coral', showXAxis=False)
 barchart(fill='coral', showXAxis=False)
 ```
 
-In the class-based api, props are also available as an attribute directly on the class itself:
+
+## Packaging Components into Reusable, Dependency-Free Python Code
+
+In some cases, you may want a reusable class with the required visuals that you can pass around without any node dependencies. For example, maybe you author a machine learning library and want to add a new interactive data visualization function to that library, but you don't want to add additional dependencies for your users (e.g. you don't want it to be the case that users of your package have node.js or any other additional python (or JavaScript) dependencies.)
+
+**svelte2jupyter provides you with a method to package your svelte components into a dependency-free python class that can be used anywhere**. Simply use the `save_to_file` method on a class component as follows:
 
 ```py
-# view props for BarChart component
-barchart.props
+# render component from class api
+barchart = sj.package_component(component='BarChart')
+
+# create reusable, dependency .py file with code for class:
+barchart.save_to_file('barchart_component.py')
 ```
+
+The newly created `barchart_component.py` will be saved to your local directory. You can inspect the file for yourself and see a python class with, depending on the complexity of your Svelte component, some pretty crazy looking attributes (namely the `iife_script` attribute). But this is the only file you need! You can copy & paste it directly into a jupyter notebook or add it to a different code base without adding any new libraries or underlying node environment.
+
 
 ## npm dependencies
 
@@ -68,8 +79,6 @@ If your component uses third-party npm dependencies, you may see an error when t
 # add third-party npm dependencies to project
 sj.add_npm_dependency('d3-shape', 'd3-array', 'd3-scale')
 ```
-
-The class-based api also provides a few more bells & whistles:
 
 ## Updating Svelte components
 
@@ -92,22 +101,6 @@ If you want to create an `.iife.js` for every component in `components/`, you ca
 # build all components
 sj.build_components()
 ```
-
-## Packaging Components into Reusable, Dependency-Free Python Code
-
-In some cases, you may want a reusable class with the required visuals that you can pass around without any node dependencies. For example, maybe you author a machine learning library and want to add a new interactive data visualization function to that library, but you don't want to add additional dependencies for your users (e.g. you don't want it to be the case that users of your package have node.js or any other additional python (or JavaScript) dependencies.)
-
-**svelte2jupyter provides you with a method to package your svelte components into a dependency-free python class that can be used anywhere**. Simply use the `save_to_file` method on a class component as follows:
-
-```py
-# render component from class api
-barchart = sj.package_component(component='BarChart')
-
-# create reusable, dependency .py file with code for class:
-barchart.save_to_file('barchart_component.py')
-```
-
-The newly created `barchart_component.py` will be saved to your local directory. You can inspect the file for yourself and see a python class with, depending on the complexity of your Svelte component, some pretty crazy looking attributes (namely the `iife_script` attribute). But this is the only file you need! You can copy & paste it directly into a jupyter notebook or add it to a different code base without adding any new libraries or underlying node environment.
 
 ## How It Works
 
@@ -134,6 +127,14 @@ It's similar to PySvelte, but actively maintained, and with code differences (Py
 - PySvelte lets one chain components together, and publish html, we don't.
 
 ## Alternatives
+
+Several alternatives exist! The goal of `svelte2jupyter` is to be super easy to use: just move a component into a `components/` dir, render that component with one function call, and save it to a re-usable python class. 
+
+However, alternatives exist with other benefits:
+
+- pysvelte: pysvelte has a publishing system, for making articles from jupyter.
+- anywidget: anywidget allows one to create ipythonwidgets from the components based on esm, which allows for bi-directional flow via traitlets (svelte2jupyter only allows python to pass data from python to javascript)
+- cookiecutter templates: (e.g. ) (These seem to be deprecated in favor of anywidget).
 
 ## ToDo
 
