@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "svelte2jupyter"
+version = "0.1.0"
+description = ""
+authors = ["Jared Wilber <jdwlbr@gmail.com>"]
+readme = "README.md"
+
+exclude = ["svelte2jupyter/components/*", "svelte2jupyter/__pycache__/*", "__pycache__"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^2.20.0"
+pytest = "^7.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
