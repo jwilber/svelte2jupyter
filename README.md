@@ -114,18 +114,6 @@ You'll notice, after rendering any component(s), that your local environment wil
 │   ├── BarChart.iife.js
 ```
 
-## Differences from PySvelte
-
-It's similar to PySvelte, but actively maintained, and with code differences (PySvelte comes with more bells and whistles, uses webpack while we usee e)
-
-- smaller
-- maintained
-- code
-  - vite vs webpack
-  - less bells and whistles
-  - no python dependencies
-- PySvelte lets one chain components together, and publish html, we don't.
-
 ## Alternatives
 
 Several alternatives exist! The goal of `svelte2jupyter` is to be super easy to use: just move a component into a `components/` dir, render that component with one function call, and save it to a re-usable python class. 
