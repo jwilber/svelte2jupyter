@@ -123,7 +123,3 @@ However, alternatives exist with other benefits:
 - pysvelte: pysvelte has a publishing system, for making articles from jupyter.
 - anywidget: anywidget allows one to create ipythonwidgets from the components based on esm, which allows for bi-directional flow via traitlets (svelte2jupyter only allows python to pass data from python to javascript)
 - cookiecutter templates: (e.g. ) (These seem to be deprecated in favor of anywidget).
-
-## ToDo
-
-- Add argument handler
