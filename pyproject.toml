@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "svelte2jupyter"
 version = "0.1.0"
-description = ""
+description = "Render svelte components inside of Jupyter notebooks."
 authors = ["Jared Wilber <jdwlbr@gmail.com>"]
 readme = "README.md"
 
