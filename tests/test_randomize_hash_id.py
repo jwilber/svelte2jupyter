@@ -27,7 +27,3 @@ def test_randomize_hash_id_uniqueness():
 
     # Check if the count of unique IDs matches the expected count.
     assert len(ids) == 1000
-
-
-# If you want to run the tests from the command line, use:
-# pytest your_test_file_name.py  # Replace 'your_test_file_name' with the actual name of this test file.
