@@ -1,5 +1,6 @@
+from .component_utils import get_component_js_script
 from .packaged_component import PackagedComponent
-from .utils import get_component_js_script, randomize_hash_id
+from .randomize_hash_id import randomize_hash_id
 
 
 def package_component(component: str) -> "PackagedComponent":
@@ -21,7 +22,6 @@ def package_component(component: str) -> "PackagedComponent":
     PackagedComponent
         The packaged component.
     """
-    print("packaged more!")
     iife_script = get_component_js_script(component)
     div_id = randomize_hash_id(component)
     return PackagedComponent(name=component, iife_script=iife_script, div_id=div_id)

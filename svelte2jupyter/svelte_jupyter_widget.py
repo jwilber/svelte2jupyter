@@ -1,15 +1,11 @@
 """SvelteJupyterWidget."""
 import json
-import os.path as op
 from random import randint
 from typing import Any, Dict
 
-# from .node_utils import build_components
-from .utils import build_components, get_component_js_script
+from .component_utils import get_component_js_script
 
 
-# check if filename in webpack
-#
 class SvelteJupyterWidget:
     """Represents a Svelte component (ie. HTML/JS/CSS component) in Python."""
 
