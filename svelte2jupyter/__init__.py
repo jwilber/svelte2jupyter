@@ -1,11 +1,11 @@
 """Module svelte2jupyter printing python version."""
+from svelte2jupyter.constants import PROJECT_DIR
 from svelte2jupyter.npm_utils import (
-    PROJECT_DIR,
     add_npm_dependency,
-    build_components,
     check_if_node_modules_exists,
     init_npm_project,
 )
+from svelte2jupyter.component_utils import build_components
 from svelte2jupyter.package import package_component
 from svelte2jupyter.render_component import render_component
 
