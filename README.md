@@ -4,7 +4,7 @@
 
 svelte2jupyter is minimal Python library for rendering [Svelte](https://svelte.dev/) components in [Jupyter](https://jupyter.org/) notebooks:
 
-- 30 second gif
+![svelte2jupyter demo](./s2j-demo.png) –
 
 ## Installation
 
@@ -59,7 +59,6 @@ sj.render_component('BarChart', fill='coral', showXAxis=False)
 barchart(fill='coral', showXAxis=False)
 ```
 
-
 ## Packaging Components into Reusable, Dependency-Free Python Code
 
 In some cases, you may want a reusable class with the required visuals that you can pass around without any node dependencies. For example, maybe you author a machine learning library and want to add a new interactive data visualization function to that library, but you don't want to add additional dependencies for your users (e.g. you don't want it to be the case that users of your package have node.js or any other additional python (or JavaScript) dependencies.)
@@ -75,7 +74,6 @@ barchart.save_to_file('barchart_component.py')
 ```
 
 The newly created `barchart_component.py` will be saved to your local directory. You can inspect the file for yourself and see a python class with, depending on the complexity of your Svelte component, some pretty crazy looking attributes (namely the `iife_script` attribute). But this is the only file you need! You can copy & paste it directly into a jupyter notebook or add it to a different code base without adding any new libraries or underlying node environment.
-
 
 ## npm dependencies
 
@@ -124,7 +122,7 @@ You'll notice, after rendering any component(s), that your local environment wil
 
 ## Alternatives
 
-Several alternatives exist! The goal of `svelte2jupyter` is to be super easy to use: just move a component into a `components/` dir, render that component with one function call, and save it to a re-usable python class. 
+Several alternatives exist! The goal of `svelte2jupyter` is to be super easy to use: just move a component into a `components/` dir, render that component with one function call, and save it to a re-usable python class.
 
 However, alternatives exist with other benefits:
 
