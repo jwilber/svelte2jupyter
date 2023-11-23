@@ -6,6 +6,14 @@ svelte2jupyter is minimal Python library for rendering [Svelte](https://svelte.d
 
 - 30 second gif
 
+## Installation
+
+Install with pip:
+
+```
+pip install svelte2jupyter
+```
+
 ## Basic Use
 
 In the same directory as your notebook, create a `components/` directory and put any Svelte components you want inside of it. (Note, you don't need to worry about any npm stuff, it'll be handled behind the scenes).
